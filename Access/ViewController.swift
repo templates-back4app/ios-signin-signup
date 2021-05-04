@@ -11,20 +11,20 @@ import Parse
 class ViewController: UIViewController {
     
     
-    @IBOutlet weak var txt_username_signin: UITextField!
-    @IBOutlet weak var txt_password_signin: UITextField!
-    @IBOutlet weak var indicator_signin: UIActivityIndicatorView!
+    @IBOutlet weak var txtUsernameSignin: UITextField!
+    @IBOutlet weak var txtPasswordSignin: UITextField!
+    @IBOutlet weak var indicatorSignin: UIActivityIndicatorView!
     
-    @IBOutlet weak var txt_username_signup: UITextField!
-    @IBOutlet weak var txt_password_signup: UITextField!
-    @IBOutlet weak var indicator_signup: UIActivityIndicatorView!
+    @IBOutlet weak var txtUsernameSignup: UITextField!
+    @IBOutlet weak var txtPasswordSignup: UITextField!
+    @IBOutlet weak var indicatorSignup: UIActivityIndicatorView!
     
-    @IBOutlet weak var btn_logout: UIButton!
+    @IBOutlet weak var btnLogout: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.btn_logout.isHidden = true
+        self.btnLogout.isHidden = true
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.systemBlue]
         navigationController?.navigationBar.barTintColor = UIColor.white
         navigationController?.navigationBar.titleTextAttributes = textAttributes
@@ -36,11 +36,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func signin(_ sender: Any) {
-        PFUser.logInWithUsername(inBackground: self.txt_username_signin.text!, password: self.txt_password_signin.text!) {
+        PFUser.logInWithUsername(inBackground: self.txtUsernameSignin.text!, password: self.txtPasswordSignin.text!) {
           (user: PFUser?, error: Error?) -> Void in
           if user != nil {
             self.displayAlert(withTitle: "Login Successful", message: "")
-            self.btn_logout.isHidden = false
+            self.btnLogout.isHidden = false
           } else {
             self.displayAlert(withTitle: "Error", message: error!.localizedDescription)
           }
@@ -49,12 +49,12 @@ class ViewController: UIViewController {
     
     @IBAction func signup(_ sender: Any) {
         let user = PFUser()
-        user.username = self.txt_username_signup.text
-        user.password = self.txt_password_signup.text
+        user.username = self.txtUsernameSignup.text
+        user.password = self.txtPasswordSignup.text
         
-        self.indicator_signup.startAnimating()
+        self.indicatorSignup.startAnimating()
         user.signUpInBackground {(succeeded: Bool, error: Error?) -> Void in
-            self.indicator_signup.stopAnimating()
+            self.indicatorSignup.stopAnimating()
             if let error = error {
                 self.displayAlert(withTitle: "Error", message: error.localizedDescription)
             } else {
@@ -65,7 +65,7 @@ class ViewController: UIViewController {
     
     @IBAction func logout(_ sender: Any) {
         PFUser.logOut()
-        self.btn_logout.isHidden = true
+        self.btnLogout.isHidden = true
     }
     
     func displayAlert(withTitle title: String, message: String) {
@@ -77,7 +77,7 @@ class ViewController: UIViewController {
     
     @objc func keyboardWillAppear(notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if view.frame.origin.y == 0 && (txt_password_signup.isFirstResponder || txt_username_signup.isFirstResponder ) {
+            if view.frame.origin.y == 0 && (txtPasswordSignup.isFirstResponder || txtUsernameSignup.isFirstResponder ) {
                self.view.frame.origin.y -= keyboardSize.height - 40
            }
        }

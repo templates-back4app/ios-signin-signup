@@ -148,13 +148,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Back4App" id="07F-2m-tq4"/>
                     <connections>
-                        <outlet property="btn_logout" destination="jLQ-sF-D68" id="CDh-OD-9yG"/>
-                        <outlet property="indicator_signin" destination="43n-mG-tur" id="sgU-T2-k2O"/>
-                        <outlet property="indicator_signup" destination="hb4-sz-zh0" id="uzq-H7-jIl"/>
-                        <outlet property="txt_password_signin" destination="joa-6E-uHC" id="HoL-is-rZI"/>
-                        <outlet property="txt_password_signup" destination="N66-Qi-APx" id="klT-AR-Oix"/>
-                        <outlet property="txt_username_signin" destination="crL-9q-t0R" id="C3b-B3-510"/>
-                        <outlet property="txt_username_signup" destination="qtq-8x-Vo4" id="F5l-gh-SL9"/>
+                        <outlet property="btnLogout" destination="jLQ-sF-D68" id="gBb-7K-yGg"/>
+                        <outlet property="indicatorSignin" destination="43n-mG-tur" id="snA-0x-Nfy"/>
+                        <outlet property="indicatorSignup" destination="hb4-sz-zh0" id="dQH-mD-tnd"/>
+                        <outlet property="txtPasswordSignin" destination="joa-6E-uHC" id="Yys-CK-7hC"/>
+                        <outlet property="txtPasswordSignup" destination="N66-Qi-APx" id="bQd-m5-ro6"/>
+                        <outlet property="txtUsernameSignin" destination="crL-9q-t0R" id="tA2-fB-OFk"/>
+                        <outlet property="txtUsernameSignup" destination="qtq-8x-Vo4" id="pSt-Zg-7go"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
